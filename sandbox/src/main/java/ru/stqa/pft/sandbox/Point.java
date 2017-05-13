@@ -21,6 +21,7 @@ public class Point {
     return Math.pow((this.p2 - this.p1), 2);
 
   }
+
   public double dot2() {
 
     return Math.pow((this.p2 - this.p1), 2);
@@ -40,7 +41,7 @@ public class Point {
 
     Point p2 = new Point(8, 4);
 
-    System.out.println(distance(p1,p2));
+    System.out.println(distance(p1, p2));
 
 
   }
