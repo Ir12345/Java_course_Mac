@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.sandbox.Point;
 
+
 /**
  * Created by Irina on 5/12/17.
  */
@@ -17,7 +18,7 @@ public class PointTests {
 
     Point p2 = new Point(6, 10);
 
-    Assert.assertEquals(Math.sqrt((Math.pow((p1.p2 - p1.p1), 2) + Math.pow((p2.p2 - p2.p1), 2))), 4.47213595499958);
+    Assert.assertEquals(p1.distanceTo(p2), 5.830951894845301);
   }
 
   @Test
@@ -27,7 +28,7 @@ public class PointTests {
 
     Point p2 = new Point(1, 8);
 
-    Assert.assertEquals(Math.sqrt((Math.pow((p1.p2 - p1.p1), 2) + Math.pow((p2.p2 - p2.p1), 2))), 8.06225774829855);
+    Assert.assertEquals(p1.distanceTo(p2), 2.23606797749979);
   }
 
   @Test
@@ -37,8 +38,7 @@ public class PointTests {
 
     Point p2 = new Point(5, 11);
 
-    Assert.assertEquals(Math.sqrt((Math.pow((p1.p2 - p1.p1), 2) + Math.pow((p2.p2 - p2.p1), 2))), 8.48528137423857);
+    Assert.assertEquals(p1.distanceTo(p2), 1.4142135623730951);
   }
-
 }
 
