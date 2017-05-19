@@ -7,31 +7,24 @@ import ru.stqa.pft.addressbook.model.ContactData;
 /**
  * Created by Irina on 5/19/17.
  */
-public class ContactHelper {
-  private FirefoxDriver wd;
+public class ContactHelper extends BaseHelper {
+
 
   public ContactHelper(FirefoxDriver wd) {
 
-    this.wd = wd;
+    super(wd);
   }
 
   public void submitContactForm() {
-    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    click(By.xpath("//div[@id='content']/form/input[21]"));
+
   }
 
   public void fillContactForm(ContactData contactData) {
-    wd.findElement(By.name("firstname")).click();
-    wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-    wd.findElement(By.name("lastname")).click();
-    wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-    wd.findElement(By.name("home")).click();
-    wd.findElement(By.name("mobile")).click();
-    wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(contactData.getMobilephone());
-    wd.findElement(By.name("email")).click();
-    wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
+    type("firstname",contactData.getFirstname());
+    type("lastname",contactData.getLastname());
+    type("mobile",contactData.getMobilephone());
+    type("email", contactData.getEmail());
+
   }
 }
