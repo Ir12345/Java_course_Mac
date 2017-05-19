@@ -6,21 +6,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 /**
  * Created by Irina on 5/19/17.
  */
-public class SessionHelper {
-  private FirefoxDriver wd;
+public class SessionHelper extends BaseHelper {
+
 
   public SessionHelper(FirefoxDriver wd) {
 
-    this.wd = wd;
+    super(wd);
   }
 
   public void login(String user, String text) {
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys(user);
-    wd.findElement(By.name("pass")).click();
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys(text);
-    wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
+    type("user", user);
+    type("pass", text);
+    click(By.xpath("//form[@id='LoginForm']/input[3]"));
+
   }
 }
