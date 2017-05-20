@@ -39,4 +39,13 @@ public class ContactHelper extends BaseHelper {
   public void closeAlert() {
     wd.switchTo().alert().accept();
   }
+
+  public void editContact() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  }
+
+  public void updateContact() {
+    click(By.name("update"));
+  }
 }
+
