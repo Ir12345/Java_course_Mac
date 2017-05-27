@@ -43,9 +43,7 @@ public class ApplicationManager {
       wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
     }
     else if (browser.equals(BrowserType.CHROME)) {
-      ChromeOptions option = new ChromeOptions();
-
-      wd = new ChromeDriver(option);
+      wd = new ChromeDriver();
     }
     else if (browser.equals(BrowserType.SAFARI)) {
       SafariOptions options = new SafariOptions();
@@ -56,7 +54,7 @@ public class ApplicationManager {
 
     }
 
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     wd.get("http://localhost.org/addressbook/index.php");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
