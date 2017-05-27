@@ -38,6 +38,14 @@ public class ContactHelper extends BaseHelper {
     }
   }
 
+  public void goToHomePage() {
+
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    }
+    click(By.linkText("home"));
+
+  }
 
   public void selectContact() {
     click(By.name("selected[]"));
@@ -57,6 +65,16 @@ public class ContactHelper extends BaseHelper {
 
   public void updateContact() {
     click(By.name("update"));
+  }
+
+  public void createContact(ContactData contact, boolean b) {
+    fillContactForm(contact, true);
+    submitContactForm();
+    goToHomePage();
+  }
+
+  public boolean isThereAreContacts() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
 
